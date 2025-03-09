@@ -1,12 +1,14 @@
 "use strcit"
 
 const id = document.querySelector('#id');
+const name = document.querySelector("#name");
 const psword = document.querySelector("#psword");
-const loginBtn = document.querySelector("#button");
+const confirmPsword = document.querySelector("#confirm-psword")
+const registerBtn = document.querySelector("#button");
 
-registerBtn.addEventListener("click", login)
+registerBtn.addEventListener("click", register)
 
-function login() {
+function register() {
     const req = {
         id: id.value,
         psword: psword.value
@@ -23,13 +25,12 @@ function login() {
     .then((res) => {
         console.log(res)
         if (res.success) {
-            location.href = "/";
+            location.href = "/login";
         } else {
-            console.log("실패!")
             alert(res.msg)
         }
     })
     .catch((err) => {
-        console.error(new Error("로그인 중 에러 발생"))
+        console.error(new Error("회원가입 중 에러 발생"))
     })
 }
